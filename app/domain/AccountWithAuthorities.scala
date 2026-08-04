@@ -16,13 +16,14 @@
 
 package domain
 
-import models.{AccountNumber, AccountStatus, AccountType}
+import models.{AccountNumber, AccountStatus, AccountType, EORI}
 import play.api.libs.json.{Json, OFormat}
 
 case class AccountWithAuthorities(
   accountType: AccountType,
   accountNumber: AccountNumber,
   accountStatus: AccountStatus,
+  ownerEori: Option[EORI],
   authorities: Seq[StandingAuthority]
 )
 

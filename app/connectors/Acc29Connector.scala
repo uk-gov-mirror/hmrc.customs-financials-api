@@ -58,7 +58,12 @@ class Acc29Connector @Inject() (
         .withBody[StandingAuthoritiesRequest](standingAuthoritiesRequest)
         .setHeader(mdgHeaders.headers(appConfig.acc29BearerToken, appConfig.acc29HostHeader): _*)
         .execute[StandingAuthoritiesResponse]
-        .map(_.accounts)
+        .map { response =>
+          val responseWithOwner = response.copy(
+            accounts = response.accounts.map(_.copy(ownerEori = Some(response.ownerEori)))
+          )
+          responseWithOwner.accounts
+        }
     }
   }
 }

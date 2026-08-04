@@ -48,6 +48,7 @@ class StandingAuthoritiesResponseSpec extends SpecBase {
         |"accountType":"CDSCash",
         |"accountNumber":"1234567890987",
         |"accountStatus":"Open",
+        |"ownerEori":"GB12345676",
         |"authorities":[{
         |"authorisedEori":"someEORI",
         |"authorisedFromDate":"2024-05-28",
@@ -66,6 +67,7 @@ class StandingAuthoritiesResponseSpec extends SpecBase {
           AccountType("CDSCash"),
           AccountNumber(BANK_ACCOUNT),
           AccountStatus("Open"),
+          Some(EORI("GB12345676")),
           Seq(accountAuthority)
         )
       )

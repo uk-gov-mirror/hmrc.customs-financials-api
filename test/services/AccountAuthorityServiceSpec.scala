@@ -45,6 +45,7 @@ class AccountAuthorityServiceSpec extends SpecBase {
                 AccountType("CDSCash"),
                 AccountNumber("123456"),
                 AccountStatus("Open"),
+                Some(EORI("GB12345676")),
                 Seq(StandingAuthority(EORI("Agent EORI"), "from date", Some("to date"), viewBalance = false))
               )
             )

@@ -42,7 +42,13 @@ class AccountAuthoritiesControllerSpec extends SpecBase {
 
     "delegate to the service and return a list of account authorities with a 200 status code" in new Setup {
       val accountWithAuthorities: Seq[AccountWithAuthorities] = Seq(
-        AccountWithAuthorities(AccountType("CDSCash"), AccountNumber("12345"), AccountStatus("Open"), Seq.empty)
+        AccountWithAuthorities(
+          AccountType("CDSCash"),
+          AccountNumber("12345"),
+          AccountStatus("Open"),
+          Some(EORI("GB12345676")),
+          Seq.empty
+        )
       )
 
       when(mockAccountAuthorityService.getAccountAuthorities(eqTo(traderEORI)))
